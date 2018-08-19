@@ -1,0 +1,36 @@
+.sidebar
+
+  .sidebar__user
+    .sidebar__user__name
+      = current_user.name
+
+    .sidebar__user__icon
+      = link_to '#' do
+        = fa_icon "pencil-square-o", class: 'icon'
+
+      = link_to edit_user_path(current_user) do
+        = fa_icon "cog", class: 'icon'
+
+  .sidebar__group
+    = render "group"
+
+
+.chat
+
+  .chat__header
+
+    .chat__header.clearfix
+      .chat__header__group test
+      %a.chat__header__edit_btn Edit
+
+      .chat__header__users Members : yurina
+
+  .chat__body
+    = render "chat__body"
+
+  .chat__form
+    %form
+      %input.text{placeholder: 'type a message'}
+        = fa_icon 'picture-o', class: 'icon'
+      %button.submit{type: 'submit'} Send
+

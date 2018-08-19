@@ -1,0 +1,88 @@
+.chat {
+  height: 100vh;
+  width: calc(100vw - 300px);
+  float: left;
+}
+
+.chat__header {
+  height: 99px;
+  width: 100%;
+  border-bottom: 1px solid $chat_border;
+  &__group {
+    font-size: 20px;
+    color: $chat_grouptitle;
+    padding-top: 35px;
+    padding-left: 40px;
+    float: left;
+  }
+  &__edit_btn {
+    float: right;
+    display: inline-block;
+    margin: 28px 40px 0 0;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    color: $chat_editbtn;
+    border: solid 2px $chat_editbtn;
+  }
+  &__users {
+    font-size: 12px;
+    color:$chat_users;
+    padding-left: 40px;
+    float: left;
+    clear: both;
+  }
+}
+
+.chat__body {
+  height: calc(100vh - 190px);
+  &__header {
+    padding-top: 46px;
+    padding-left: 40px;
+    p.name {
+    font-size: 16px;
+    color: $chat_body;
+    display: inline-block;
+    font-weight: bold;
+    }
+    p.time {
+    font-size: 12px;
+    color: $chat_body_time;
+    display: inline;
+    padding-left: 10px;
+    }
+  }
+  &__message{
+    font-size: 14px;
+    color: $chat_body;
+    padding: 10px 0 40px 40px;
+  }
+}
+
+.chat__form {
+  height: 50px;
+  width: calc(100vw - 380px);
+  background-color: $form_background;
+  padding: 20px 40px;
+
+  input.text {
+    height: 50px;
+    width: calc(100% - 90px);
+    position: relative;
+    padding: 0;
+  }
+
+  .fa {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-right: 140px;
+  }
+  button.submit {
+    background-color: $color-blue;
+    color: white;
+    height: 50px;
+    width: 80px;
+    line-height: 50px
+  }
+}

@@ -1,0 +1,38 @@
+.sidebar {
+  height: 100vh;
+  width: 300px;
+  float: left;
+  background-color: $user_gray;
+  color: $user_fontcolor;
+  &__user {
+    background-color: $user_darkgrey;
+    height: 100px;
+    line-height: 100px;
+    padding: 0 20px;
+    &__name {
+      font-size: 16px;
+      font-weight: bold;
+      float: left;
+    }
+    &__icon {
+      float: right;
+      font-size: 20px;
+    }
+    &__icon :before {
+      color: $user_fontcolor;
+    }
+  }
+  &__group {
+    padding: 0 20px;
+    height: 91px;
+    &__name {
+      font-size: 15px;
+      padding-top: 20px;
+      padding-bottom: 5px;
+    }
+    &__chat {
+      font-size: 11px;
+      padding-bottom: 40px;
+    }
+  }
+}
