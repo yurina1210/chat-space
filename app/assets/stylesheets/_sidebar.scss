@@ -22,21 +22,17 @@
       color: $user_fontcolor;
     }
   }
-  &__groups {
+  &__group {
     padding: 0 20px;
     height: 91px;
-    &__group {
-      &__name {
-        font-size: 15px;
-        padding-top: 20px;
-        padding-bottom: 5px;
-        color: $user_fontcolor;
-      }
-      &__chat {
-        font-size: 11px;
-        padding-bottom: 40px;
-        color: $user_fontcolor;
-      }
+    &__name {
+      font-size: 15px;
+      padding-top: 20px;
+      padding-bottom: 5px;
+    }
+    &__chat {
+      font-size: 11px;
+      padding-bottom: 40px;
     }
   }
 }
