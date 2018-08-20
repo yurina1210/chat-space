@@ -1,0 +1,11 @@
+.chat__body__header
+  .chat__body__header__name
+    = message.user.name
+  .chat__body__header__date
+    = format_posted_time(message.created_at)
+
+.chat__body__message
+  - if message.content.present?
+    %p.chat__body__message__content
+      = message.content
+  = image_tag message.image.url, class: 'chat__body__message__image' if message.image.present?
