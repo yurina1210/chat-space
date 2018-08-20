@@ -39,13 +39,13 @@
   &__header {
     padding-top: 46px;
     padding-left: 40px;
-    p.name {
+    &__name {
     font-size: 16px;
     color: $chat_body;
     display: inline-block;
     font-weight: bold;
     }
-    p.time {
+    &__date {
     font-size: 12px;
     color: $chat_body_time;
     display: inline;
@@ -65,20 +65,21 @@
   background-color: $form_background;
   padding: 20px 40px;
 
-  input.text {
+
+  .form__message {
     height: 50px;
     width: calc(100% - 90px);
     position: relative;
     padding: 0;
   }
 
-  .fa {
+  .form__mask {
     position: absolute;
     bottom: 0;
     right: 0;
     padding-right: 140px;
   }
-  button.submit {
+  .form__submit {
     background-color: $color-blue;
     color: white;
     height: 50px;
