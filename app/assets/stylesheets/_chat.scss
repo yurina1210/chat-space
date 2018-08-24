@@ -36,6 +36,7 @@
 
 .chat__body {
   height: calc(100vh - 190px);
+  overflow: scroll;
   &__header {
     padding-top: 46px;
     padding-left: 40px;
@@ -75,9 +76,11 @@
 
   .form__mask {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    padding-right: 140px;
+    bottom: 30px;
+    right: 140px;
+    #upload-icon{
+      display: none;
+    }
   }
   .form__submit {
     background-color: $color-blue;
