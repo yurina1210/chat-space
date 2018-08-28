@@ -51,14 +51,10 @@ $(document).on('turbolinks:load', function() {
     url: location.href,
     type: "GET",
     dataType: 'json',
-    data: {
-       message: { id: $('.chat__body').data('messageId') }
-      },
     processData: false,
     contentType: false
   })
   .done(function(data) {
-    var id = $('.chat__body__messages__message__content').data('messageId');
     var insertHTML = '';
    if (data.length) {
       data.forEach(function(message) {
