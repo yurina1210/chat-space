@@ -1,11 +1,12 @@
-.chat__body__header
-  .chat__body__header__name
-    = message.user.name
-  .chat__body__header__date
-    = format_posted_time(message.created_at)
+.chat__body__messages{ "data-message-id": "#{message.id}"}
+  .chat__body__messages__header
+    .chat__body__messages__header__name
+      = message.user.name
+    .chat__body__messages__header__date
+      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
 
-.chat__body__message
+  .chat__body__messages__message
   - if message.content.present?
-    %p.chat__body__message__content
+    %p.chat__body__messages__message__content
       = message.content
-  = image_tag message.image.url, class: 'chat__body__message__image' if message.image.present?
+  = image_tag message.image.url, class: 'chat__body__messages__message__image' if message.image.present?

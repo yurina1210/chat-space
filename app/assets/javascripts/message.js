@@ -1,22 +1,23 @@
-$(function(){
+$(document).on('turbolinks:load', function() {
   function buildHTML(message){
-    console.log(message)
     var image = message.image ? `<img src = ${message.image}>`: "";
-    var html = `<div class = "chat__body__header">
-                  <div class = "chat__body__header__name">
-                    ${message.user_name}
+    var html = `<div class = "chat__body__messages">
+                  <div class = "chat__body__messages__header">
+                    <div class = "chat__body__messages__header__name">
+                      ${message.user_name}
+                    </div>
+                    <div class = "chat__body__messages__header__date">
+                      ${message.created_at}
+                    </div>
                   </div>
-                  <div class = "chat__body__header__date">
-                    ${message.created_at}
+                  <div class = "chat__body__messages__message">
+                    <p class = "chat__body__messages__message__content">
+                      ${message.content}
+                    </p>
+                    <img class = "chat__body__messages__message__image">
+                      ${image}
                   </div>
-                </div>
-                <div class = "chat__body__message">
-                  <p class = "chat__body__message__content">
-                    ${message.content}
-                  </p>
-                  <img class = "chat__body__message__image">
-                    ${image}
-              </div>`
+                </div>`
     return html;
   }
   $("#new_message").on("submit", function(e){
@@ -43,4 +44,34 @@ $(function(){
       alert('入力エラーです');
     })
   })
+
+  var interval = setInterval(function() {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+  $.ajax({
+    url: location.href,
+    type: "GET",
+    dataType: 'json',
+    data: {
+       message: { id: $('.chat__body').data('messageId') }
+      },
+    processData: false,
+    contentType: false
+  })
+  .done(function(data) {
+    var id = $('.chat__body__messages__message__content').data('messageId');
+    var insertHTML = '';
+   if (data.length) {
+      data.forEach(function(message) {
+        insertHTML += buildHTML(message);
+      });
+    }
+    $('.chat__body__messages').append(insertHTML);
+  })
+  .fail(function(data) {
+    alert('自動更新に失敗しました');
+  });
+} else {
+    clearInterval(interval);
+   }} , 5 * 1000 );
+
 });
