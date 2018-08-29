@@ -37,26 +37,33 @@
 .chat__body {
   height: calc(100vh - 190px);
   overflow: scroll;
-  &__header {
-    padding-top: 46px;
-    padding-left: 40px;
-    &__name {
-    font-size: 16px;
-    color: $chat_body;
-    display: inline-block;
-    font-weight: bold;
+  &__messages{
+    &__header {
+      padding-top: 46px;
+      padding-left: 40px;
+      &__name {
+      font-size: 16px;
+      color: $chat_body;
+      display: inline-block;
+      font-weight: bold;
+      }
+      &__date {
+      font-size: 12px;
+      color: $chat_body_time;
+      display: inline;
+      padding-left: 10px;
+      }
     }
-    &__date {
-    font-size: 12px;
-    color: $chat_body_time;
-    display: inline;
-    padding-left: 10px;
+    &__message{
+      &__content{
+      font-size: 14px;
+      color: $chat_body;
+      padding: 10px 0 40px 40px;
+      }
+      &__image{
+      padding: 10px 0 40px 40px;
+      }
     }
-  }
-  &__message{
-    font-size: 14px;
-    color: $chat_body;
-    padding: 10px 0 40px 40px;
   }
 }
 
