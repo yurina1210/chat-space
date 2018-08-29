@@ -47,12 +47,12 @@ $(document).on('turbolinks:load', function() {
 
   var interval = setInterval(function() {
     if (window.location.pathname.match(/\/groups\/\d+\/messages/)) {
+  var messageId = $('.chat__body__messages:last').data('message-id');
   $.ajax({
     url: location.href,
     type: "GET",
     dataType: 'json',
-    processData: false,
-    contentType: false
+    data: {id: messageId}
   })
   .done(function(data) {
     var insertHTML = '';
@@ -61,7 +61,7 @@ $(document).on('turbolinks:load', function() {
         insertHTML += buildHTML(message);
       });
     }
-    $('.chat__body__messages').append(insertHTML);
+    $('.chat__body__messages:last').append(insertHTML);
   })
   .fail(function(data) {
     alert('自動更新に失敗しました');
